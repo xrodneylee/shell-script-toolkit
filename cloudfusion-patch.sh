@@ -1,3 +1,6 @@
+#!/bin/sh
+# author : guanpu.lee
+
 cd /home/iss-user/tomcatitri
 sudo sh bin/shutdown.sh
 sudo cp webapps/cloudfusion.war backup/cloudfusion_$(date +"%m_%d_%Y_%H_%M_%S")_backup.war
