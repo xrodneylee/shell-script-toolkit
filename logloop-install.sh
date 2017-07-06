@@ -10,4 +10,5 @@ sudo systemctl start logloop
 ./post-install.sh
 cd ..
 docker cp Caddyfile elk5-cntr:/etc/caddy
+docker exec -it elk5-cntr sv stop caddy
 docker exec -it elk5-cntr sv start caddy
