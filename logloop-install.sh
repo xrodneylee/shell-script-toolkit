@@ -12,7 +12,7 @@ function install_docker() {
     sudo systemctl start docker
 }
 function change_https_to_http() {
-    docker cp Caddyfile elk5-cntr:/etc/caddy
+    docker cp ../Caddyfile elk5-cntr:/etc/caddy
     docker exec -it elk5-cntr sv stop caddy
     docker exec -it elk5-cntr sv start caddy
 }
