@@ -1,3 +1,5 @@
+#!/bin/sh
+# author : guanpu.lee
 docker cp defaults.js elk5-cntr:/opt/kibana/src/ui/settings
 docker cp chrome.jade elk5-cntr:/opt/kibana/src/ui/views
 docker cp ui_app.jade elk5-cntr:/opt/kibana/src/ui/views
