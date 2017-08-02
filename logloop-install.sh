@@ -59,11 +59,11 @@ function logloop_post_install() {
     ./logloop/post-install.sh
 }
 function run() {
-    install_docker
-    create_volume
-    install_logloop
-    change_https_to_http
-    change_logloop_logo
+    install_docker &&
+    create_volume &&
+    install_logloop &&
+    change_https_to_http &&
+    change_logloop_logo &&
     logloop_post_install
 }
 run "$@"
