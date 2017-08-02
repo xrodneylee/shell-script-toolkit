@@ -1,15 +1,27 @@
 #!/bin/sh
 # author : guanpu.lee
+
+set -e
+
+DOCKER_FILE="docker-ce-17.06.0.ce-1.el7.centos.x86_64.rpm"
+
+LOGLOOP_FILE="logloop-install-linux64-latest.bin"
+LOGLOOP_PASS="logloop@201706"
+
+function install_docker() {
+    sudo yum install -y $DOCKER_FILE
+    sudo systemctl start docker
+}
+function create_volume() {
+
+}
 function install_logloop() {
-    chmod 777 logloop-install-linux64-latest.bin
-    ./logloop-install-linux64-latest.bin -plogloop@201706
+    chmod 755 $LOGLOOP_FILE
+    ./$LOGLOOP_FILE -p$LOGLOOP_PASS
     cd logloop-install
     ./install.sh
     sudo systemctl start logloop
-}
-function install_docker() {
-    sudo yum install -y docker-ce-17.06.0.ce-1.el7.centos.x86_64.rpm
-    sudo systemctl start docker
+    sudo systemctl enable logloop
 }
 function change_https_to_http() {
     docker cp ../Caddyfile elk5-cntr:/etc/caddy
@@ -28,6 +40,10 @@ function logloop_post_install() {
     ./logloop/post-install.sh
 }
 function run() {
-    install_docker && install_logloop && change_https_to_http && change_logloop_logo && logloop_post_install
+    install_docker
+    install_logloop
+    change_https_to_http
+    change_logloop_logo
+    # logloop_post_install
 }
 run "$@"
