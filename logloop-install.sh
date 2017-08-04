@@ -54,6 +54,7 @@ function change_https_to_http() {
     cd ../${CONFIG_DIR}
     docker cp Caddyfile elk5-cntr:/etc/caddy
     docker exec -it elk5-cntr sv stop caddy
+    sleep 3
     docker exec -it elk5-cntr sv start caddy
 }
 function change_logloop_logo() {
@@ -67,6 +68,7 @@ function change_logloop_logo() {
     docker cp logloop-logo.svg elk5-cntr:/opt/kibana/optimize/bundles
 }
 function logloop_post_install() {
+    echo logloop post install
     sleep 120
     cd ..
     ./logloop-install/post-install.sh
