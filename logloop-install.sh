@@ -58,6 +58,7 @@ function change_https_to_http() {
 }
 function change_logloop_logo() {
     echo change logloop logo
+    cd ../${LOGO_DIR}
     docker cp defaults.js elk5-cntr:/opt/kibana/src/ui/settings
     docker cp chrome.jade elk5-cntr:/opt/kibana/src/ui/views
     docker cp ui_app.jade elk5-cntr:/opt/kibana/src/ui/views
