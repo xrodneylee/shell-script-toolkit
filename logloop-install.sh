@@ -38,6 +38,7 @@ function create_volume() {
             --name="es_data"
 }
 function install_logloop() {
+    echo install logloop
     cd ..
     chmod 755 ${LOGLOOP_FILE}
     ./${LOGLOOP_FILE} -p${LOGLOOP_PASS}
@@ -46,15 +47,17 @@ function install_logloop() {
     sleep 5
     sudo systemctl start logloop
     sudo systemctl enable logloop
-    sleep 3
+    sleep 5
 }
 function change_https_to_http() {
+    echo change https to http
     cd ../${CONFIG_DIR}
     docker cp Caddyfile elk5-cntr:/etc/caddy
     docker exec -it elk5-cntr sv stop caddy
     docker exec -it elk5-cntr sv start caddy
 }
 function change_logloop_logo() {
+    echo change logloop logo
     docker cp defaults.js elk5-cntr:/opt/kibana/src/ui/settings
     docker cp chrome.jade elk5-cntr:/opt/kibana/src/ui/views
     docker cp ui_app.jade elk5-cntr:/opt/kibana/src/ui/views
