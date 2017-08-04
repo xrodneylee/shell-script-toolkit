@@ -43,6 +43,7 @@ function install_logloop() {
     ./${LOGLOOP_FILE} -p${LOGLOOP_PASS}
     cd logloop-install
     ./install.sh
+    sleep 5
     sudo systemctl start logloop
     sudo systemctl enable logloop
     sleep 3
