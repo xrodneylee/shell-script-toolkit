@@ -3,7 +3,9 @@
 
 set -e
 
-DOCKER_FILE="docker-ce-17.06.0.ce-1.el7.centos.x86_64.rpm"
+DOCKER_DIR="docker"
+LOGO_DIR="logo"
+CONFIG_DIR="config"
 
 LOGLOOP_FILE="logloop-install-linux64-latest.bin"
 LOGLOOP_PASS="logloop@201706"
@@ -15,10 +17,11 @@ SYSTEMD_CONFIG_URL="systemd.service"
 SYSTEMD_CONFIG_DEST="/etc/systemd/system/docker-volume-local-persist.service"
 
 function install_docker() {
-    sudo yum install -y ${DOCKER_FILE}
+    sudo rpm -ivh ${DOCKER_DIR}/*.rpm
     sudo systemctl start docker
 }
 function create_volume() {
+    cd ${CONFIG_DIR}
     mv ${DOCKER_VOLUME_LOCAL_PERSIST} ${DOCKER_VOLUME_LOCAL_PERSIST_DEST}
     chmod +x ${DOCKER_VOLUME_LOCAL_PERSIST_DEST}
 
@@ -35,6 +38,7 @@ function create_volume() {
             --name="es_data"
 }
 function install_logloop() {
+    cd ..
     chmod 755 ${LOGLOOP_FILE}
     ./${LOGLOOP_FILE} -p${LOGLOOP_PASS}
     cd logloop-install
@@ -44,7 +48,7 @@ function install_logloop() {
     sleep 3
 }
 function change_https_to_http() {
-    cd ..
+    cd ../${CONFIG_DIR}
     docker cp Caddyfile elk5-cntr:/etc/caddy
     docker exec -it elk5-cntr sv stop caddy
     docker exec -it elk5-cntr sv start caddy
@@ -58,7 +62,8 @@ function change_logloop_logo() {
     docker cp logloop-logo.svg elk5-cntr:/opt/kibana/optimize/bundles
 }
 function logloop_post_install() {
-    sleep 5
+    sleep 120
+    cd ..
     ./logloop-install/post-install.sh
 }
 function run() {
