@@ -3,9 +3,11 @@
 
 set -e
 
-DOCKER_DIR="docker"
+#DOCKER_DIR="docker"
 LOGO_DIR="logo"
 CONFIG_DIR="config"
+
+DOCKER_FILE="docker-ce-17.06.0.ce-1.el7.centos.x86_64.rpm"
 
 LOGLOOP_FILE="logloop-install-linux64-latest.bin"
 LOGLOOP_PASS="logloop@201706"
@@ -17,7 +19,7 @@ SYSTEMD_CONFIG_URL="systemd.service"
 SYSTEMD_CONFIG_DEST="/etc/systemd/system/docker-volume-local-persist.service"
 
 function install_docker() {
-    sudo rpm -ivh ${DOCKER_DIR}/*.rpm
+    sudo yum install -y $DOCKER_FILE
     sudo systemctl start docker
 }
 function create_volume() {
