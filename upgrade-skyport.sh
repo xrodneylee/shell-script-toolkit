@@ -1,3 +1,4 @@
+#!/bin/bash
 function stop_service() {
     echo "[`date '+%F %T'`]" "INFO: stop service " ${1}
     systemctl stop ${1}
