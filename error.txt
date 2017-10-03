@@ -19,6 +19,7 @@ aliyun-java-sdk-rds-2.0.4.jar
 aliyun-java-sdk-slb-2.0.0-rc1.jar
 aliyun-sdk-oss-2.2.1.jar
 annotations-1.3.2.jar
+
 antlr-2.7.7.jar
 aopalliance-1.0.jar
 asm-all-repackaged-2.2.0-b21.jar
@@ -40,7 +41,10 @@ bcprov-jdk14-138.jar
 bcprov-jdk16-1.46.jar
 bctsp-jdk14-1.38.jar
 bean-validator-2.2.0-b21.jar
+
+
 camel-core-2.13.1.jar
+
 camel-jms-2.13.1.jar
 camel-mail-2.13.1.jar
 camel-spring-2.13.1.jar
@@ -95,6 +99,7 @@ core-3.2.1.jar
 cssparser-0.9.23.jar
 dom4j-1.6.1.jar
 driver-api-3.6.10.jar
+
 driver-test-3.2.0.jar
 ecj-4.3.1.jar
 ehcache-core-2.5.0.jar
@@ -113,6 +118,7 @@ hibernate-core-4.1.9.Final.jar
 hibernate-entitymanager-4.1.9.Final.jar
 hibernate-envers-4.1.9.Final.jar
 hibernate-jpa-2.0-api-1.0.1.Final.jar
+
 hk2-2.2.0-b21.jar
 hk2-api-2.2.0-b21.jar
 hk2-config-2.2.0-b21.jar
@@ -140,6 +146,7 @@ jakarta-regexp-1.4.jar
 jasperreports-6.3.1.jar
 javassist-3.20.0-GA.jar
 java-uuid-generator-3.1.3.jar
+
 javax.annotation-api-1.2.jar
 javax.inject-1.jar
 javax.inject-2.2.0-b21.jar
@@ -164,8 +171,11 @@ jetty-http-9.4.5.v20170502.jar
 jetty-io-9.4.5.v20170502.jar
 jetty-util-9.4.5.v20170502.jar
 jfreechart-1.0.19.jar
+
 joda-time-2.3.jar
+
 json-lib-2.4-jdk15.jar
+
 licensing-core-1.1.1.jar
 licensing-licensor-base-1.1.1.jar
 log4j-1.2.13.jar
@@ -187,8 +197,10 @@ osgi-resource-locator-1.0.1.jar
 plugin-icloud-1.5.6_5.jar
 postgresql-9.3-1102-jdbc41.jar
 quartz-1.7.3.jar
+
 sac-1.3.jar
 serializer-2.7.2.jar
+
 shiro-core-1.2.3.jar
 shiro-ehcache-1.2.1.jar
 shiro-spring-1.2.3.jar
@@ -197,7 +209,12 @@ skyport-api-3.6.2.jar
 skyport-distributed-3.3.0.jar
 skyport-entity-3.4.0.jar
 skyport-hazelcast-3.5.0.jar
+
+
+
+
 slf4j-api-1.7.7.jar
+
 smiley-http-proxy-servlet-1.9.jar
 spring-aop-4.0.9.RELEASE.jar
 spring-aspects-4.0.9.RELEASE.jar
