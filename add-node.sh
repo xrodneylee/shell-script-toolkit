@@ -1,3 +1,4 @@
+#!/bin/sh
 function add_node() {
     # Node details
     inventory_hostname=${1}
