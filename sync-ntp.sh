@@ -5,7 +5,7 @@ function sync_admin() {
     systemctl start ntpd
 }
 function sync_nodes() {
-    for hostname in controller01,controller02,controller03
+    for hostname in controller01 controller02 controller03
     do
         ssh $hostname 'systemctl restart ntpd'
     done
