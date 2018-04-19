@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 function run() {
     create_date=$(date '+%F')
     filename="openstack-$create_date-backup.sql"
