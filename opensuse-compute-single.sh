@@ -559,6 +559,7 @@ chown root:ceilometer /etc/ceilometer/ceilometer.conf.d/100-ceilometer.conf
 
 sudo mv /etc/sysconfig/network/ifcfg-eth0 /root/infinitiessoft/tmp
 sudo mv /etc/sysconfig/network/ifcfg-eth1 /root/infinitiessoft/tmp
+sudo mv /etc/sysconfig/network/ifcfg-vlan9 /root/infinitiessoft/tmp
 sudo mv /etc/sysconfig/network/ifroute-vlan9 /root/infinitiessoft/tmp
 sudo mv /etc/resolv.conf /root/infinitiessoft/tmp
 
