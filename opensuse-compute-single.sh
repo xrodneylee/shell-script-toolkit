@@ -588,7 +588,7 @@ EOF
 sudo cat > /etc/resolv.conf << EOF
 search braavos.nchc.org.tw
 nameserver 127.0.0.1
-nameserver 192.168.120.10
+nameserver 172.16.120.10
 nameserver 172.16.120.106
 EOF
 
@@ -652,7 +652,7 @@ BOOTPROTO=none
 EOF
 
 sudo cat > /etc/sysconfig/network/ifroute-eth0.300 << EOF
-default 192.168.132.1
+default 172.16.132.1
 EOF
 
 # libvirt
