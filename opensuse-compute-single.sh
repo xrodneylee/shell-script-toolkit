@@ -418,11 +418,11 @@ cat > /etc/ceph/ceph.conf << EOF
         max open files = 131072
 
         ; set log file
-        log file = /var/log/ceph/$name.log
+        log file = /var/log/ceph/\$name.log
         ; log_to_syslog = true        ; uncomment this line to log to syslog
 
         ; set up pid files
-        pid file = /var/run/ceph/$name.pid
+        pid file = /var/run/ceph/\$name.pid
 
         ; provide the unique identifier for object store
         fsid =
@@ -454,7 +454,7 @@ cat > /etc/ceph/ceph.conf << EOF
 ;  You need at least one.  You need at least three if you want to
 ;  tolerate any node failures.  Always create an odd number.
 [mon]
-    mon data = /var/lib/ceph/mon/ceph-$id
+    mon data = /var/lib/ceph/mon/ceph-\$id
 
         ; Timing is critical for monitors, but if you want to allow the clocks to drift a
         ; bit more, you can specify the max drift.
@@ -479,15 +479,15 @@ cat > /etc/ceph/ceph.conf << EOF
 ;  Define as many as you like.
 [osd]
     ; This is where the osd expects its data
-    osd data = /var/lib/ceph/osd/ceph-$id
+    osd data = /var/lib/ceph/osd/ceph-\$id
 
     ; Ideally, make the journal a separate disk or partition.
     ; 1-10GB should be enough; more if you have fast or many
     ; disks.  You can use a file under the osd data dir if need be
-    ; (e.g. /data/$name/journal), but it will be slower than a
+    ; (e.g. /data/\$name/journal), but it will be slower than a
     ; separate disk or partition.
         ; This is an example of a file-based journal.
-    osd journal = /var/lib/ceph/osd/ceph-$id/journal
+    osd journal = /var/lib/ceph/osd/ceph-\$id/journal
     osd journal size =
 
         ; If you want to run the journal on a tmpfs (don't), disable DirectIO
@@ -511,10 +511,10 @@ cat > /etc/ceph/ceph.conf << EOF
         ; The filesystem used on the volumes
         osd mkfs type = xfs
         ; If you want to specify some other mount options, you can do so.
-        ; for other filesystems use 'osd mount options $fstype'
+        ; for other filesystems use 'osd mount options \$fstype'
     osd mount options xfs = rw,noatime,inode64,logbsize=256k
-    ; The options used to format the filesystem via mkfs.$fstype
-        ; for other filesystems use 'osd mkfs options $fstype'
+    ; The options used to format the filesystem via mkfs.\$fstype
+        ; for other filesystems use 'osd mkfs options \$fstype'
     ; osd mkfs options btrfs =
 
 
